@@ -3,8 +3,9 @@ import bridge from '@vkontakte/vk-bridge';
 import { View, ScreenSpinner, AdaptivityProvider, AppRoot, ConfigProvider, SplitLayout, SplitCol } from '@vkontakte/vkui';
 import '@vkontakte/vkui/dist/vkui.css';
 
-import Home from './panels/Home';
-import Persik from './panels/Persik';
+import HomePage from './component/HomePage/HomePage';
+import StartPage from './component/StartPage/StartPage';
+import FormPage from './component/FormPage/FormPage';
 
 const App = () => {
 	const [activePanel, setActivePanel] = useState('home');
@@ -28,11 +29,12 @@ const App = () => {
 		<ConfigProvider>
 			<AdaptivityProvider>
 				<AppRoot>
-					<SplitLayout popout={popout}>
+					<SplitLayout popout={null}>
 						<SplitCol>
 							<View activePanel={activePanel}>
-								<Home id='home' fetchedUser={fetchedUser} go={go} />
-								<Persik id='persik' go={go} />
+								<HomePage id="home" go={go} />
+								<StartPage id="start" go={go} />
+								<FormPage id="form" go={go} />
 							</View>
 						</SplitCol>
 					</SplitLayout>
