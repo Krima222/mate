@@ -1,0 +1,12 @@
+.slider {
+    overflow: hidden;
+    & > div {
+        & > div {
+            gap: 10px;
+        }
+    }
+    &__wrapper {
+        height: 100vh;
+        padding: 10px;
+    }
+}
