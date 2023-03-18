@@ -7,6 +7,7 @@ import HomePage from './component/HomePage/HomePage';
 import StartPage from './component/StartPage/StartPage';
 import FormPage from './component/FormPage/FormPage';
 import Feed from './component/Feed/Feed';
+import Questionnaires from './component/Questionnaires/Questionnaires';
 
 import img from './socialEng.png'
 
@@ -59,6 +60,7 @@ const App = () => {
 								<StartPage id="start" go={go} />
 								<FormPage id="form" go={go} />
 								<Feed id="feed" go={() => setActivePanel("form")}/>
+								<Questionnaires id="questionnaires" go={go} />
 							</View>
 						</SplitCol>
 					</SplitLayout>
