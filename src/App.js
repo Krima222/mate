@@ -6,9 +6,10 @@ import '@vkontakte/vkui/dist/vkui.css';
 import HomePage from './component/HomePage/HomePage';
 import StartPage from './component/StartPage/StartPage';
 import FormPage from './component/FormPage/FormPage';
+import Feed from './component/Feed/Feed';
 
 const App = () => {
-	const [activePanel, setActivePanel] = useState('home');
+	const [activePanel, setActivePanel] = useState('feed');
 	const [fetchedUser, setUser] = useState(null);
 	const [popout, setPopout] = useState(<ScreenSpinner size='large' />);
 
@@ -35,6 +36,7 @@ const App = () => {
 								<HomePage id="home" go={go} />
 								<StartPage id="start" go={go} />
 								<FormPage id="form" go={go} />
+								<Feed id="feed" />
 							</View>
 						</SplitCol>
 					</SplitLayout>
