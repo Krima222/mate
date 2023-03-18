@@ -1,7 +1,6 @@
 import React from 'react';
 
-import { Panel, Button, Div, Gradient, Image, Title, Avatar, Text, Group, ModalCardBase, ButtonGroup } from '@vkontakte/vkui';
-import { Icon28AddOutline } from '@vkontakte/icons';
+import { Panel, Button, Div, Gradient, Title, Avatar, Text, Group, ModalCardBase, ButtonGroup } from '@vkontakte/vkui';
 
 const HomePage = ({id, go}) => {
 	const styles = {
