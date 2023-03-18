@@ -28,7 +28,11 @@ const ActiveCard = ({ img, icon, title, description, tags, button, isLast, actio
                         </div>
                     )}
                     {button ? (
-                        <button className={classes.card__btn}>
+                        <button 
+                            className={classes.card__btn} 
+                            onClick={action}
+                            onTouchEnd={action}
+                        >
                             {button}
                         </button>
                     ) : (

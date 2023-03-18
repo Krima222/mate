@@ -39,7 +39,7 @@ const cards = [
     }
 ]
 
-const Feed = ({ id }) => (
+const Feed = ({ id, go }) => (
     <Panel id={id}>
         <Slider>
             {cards.reverse().map(item => (
@@ -49,7 +49,7 @@ const Feed = ({ id }) => (
                     title={item.title}
                     description={item.description}
                     button={item.button}
-                    action={item.action}
+                    action={go}
                     isLast={item.isLast}
                     tags={item.tags}
                 />

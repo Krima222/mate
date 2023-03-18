@@ -105,7 +105,7 @@ const StartPage = ({id, go}) => {
                 </FormItem>
             </Div>
             <Div>
-                <Button size="l" mode="primary" stretched onClick={go} data-to="home">
+                <Button size="l" mode="primary" stretched onClick={go} data-to="feed">
                     Найти движ
                 </Button>
             </Div>
