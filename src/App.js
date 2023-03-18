@@ -8,6 +8,8 @@ import StartPage from './component/StartPage/StartPage';
 import FormPage from './component/FormPage/FormPage';
 import Feed from './component/Feed/Feed';
 
+import img from './socialEng.png'
+
 const App = () => {
 	const [activePanel, setActivePanel] = useState('home');
 	const [fetchedUser, setUser] = useState(null);
@@ -20,6 +22,26 @@ const App = () => {
 			setPopout(null);
 		}
 		fetchData();
+		bridge.send('VKWebAppShowSlidesSheet', {
+			slides: [
+			  {
+				media: {
+				  blob: img,
+				  type: 'image'
+				},
+				title: 'Заголовок слайда',
+				subtitle: 'Описание слайда под заголовком'
+			  }
+			 ]})
+			.then((data) => { 
+			  if (data.result) {
+				// Слайды показаны
+			  }
+			})
+			.catch((error) => {
+			  // Ошибка
+			  console.log(error);
+		});
 	}, []);
 
 	const go = e => {

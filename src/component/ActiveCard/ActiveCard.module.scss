@@ -30,8 +30,8 @@
     &__icon {
         margin: 0 auto;
         position: relative;
-        width: 40.8px;
-        height: 46.67px;
+        width: 48px;
+        height: 30px;
         img {
             position: absolute;
             width: 100%;
@@ -48,7 +48,7 @@
         padding: 8px 16px;
         color: var(--vkui--color_text_primary);
         font-family: var(--vkui--font_subhead--font_family--regular);
-        font-size: var(--vkui--font_subhead--font_size--regular);
+        font-size: var(--vkui--font_title3--font_size--regular);
         font-weight: var(--vkui--font_title2--font_weight--regular);
         border: none;
     }
