@@ -2,6 +2,7 @@ import React from 'react';
 
 import { Panel, PanelHeader, PanelHeaderBack, Group, Gradient, Avatar, Title, Text, AdaptivityProvider, ModalCardBase, Div, ViewWidth } from '@vkontakte/vkui';
 import Footer from '../Footer/Footer';
+import classes from './Profile.module.scss'
 
 const Profile = ({id, go, fetchedUser, userData}) => (
     <Panel id={id}>
