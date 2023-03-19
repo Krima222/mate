@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Panel, Button, Div, Gradient, Title, Avatar, Text, Group, ModalCardBase, ButtonGroup } from '@vkontakte/vkui';
 
-const HomePage = ({id, go}) => {
+const HomePage = ({id, go, fetchedUser}) => {
 	const styles = {
 		margin: 0,
 		display: 'flex',
@@ -16,9 +16,9 @@ const HomePage = ({id, go}) => {
 		<Panel id={id}>
 		<Group>
         	<Gradient mode="tint" style={styles}>
-				<Avatar size={96} />
+				<Avatar size={96} src={!fetchedUser ? null : fetchedUser.photo_200} />
 				<Title style={{ marginBottom: 8, marginTop: 20 }} level="2" weight="2">
-					Елизавета Корчагина
+					{!fetchedUser ? null : `${fetchedUser.first_name} ${fetchedUser.last_name}`}
 				</Title>
 				<Text
 					style={{

@@ -1,12 +1,28 @@
 import React, {useState} from 'react';
 
-import { Panel, PanelHeader, PanelHeaderBack, Group, Gradient, Avatar, Title, Text, Div, FormItem, Select, Button, Textarea } from '@vkontakte/vkui';
+import { 
+    Panel, 
+    PanelHeader, 
+    PanelHeaderBack, 
+    Group, 
+    Gradient, 
+    Avatar, 
+    Title, 
+    Text, 
+    Div, 
+    FormItem, 
+    Select, 
+    Button, 
+    Textarea,
+    setPopoutWithRestriction,
+    Alert
+} from '@vkontakte/vkui';
 import Checkbox from '../Checkbox/Checkbox';
 import Footer from '../Footer/Footer';
 
-const StartPage = ({ id, go, activePanel }) => {
+const StartPage = ({ id, go, activePanel, fetchedUser }) => {
     const [checked, setChecked] = useState(new Set());
-    const [sizeY, setSizeY] = useState('');
+    const [university, setUniversity] = useState('');
     const [city, setCity] = useState('');
     
     const handleChange = (event) => {
@@ -45,14 +61,24 @@ const StartPage = ({ id, go, activePanel }) => {
 		textAlign: 'center',
 		padding: 32,
 	};
+
+    const submit = () => {
+        setPopoutWithRestriction(
+            <Alert
+              header="Поле Имя не заполнено"
+              text="Пожалуйста, заполните его."
+              onClose={() => setPopoutWithRestriction(null)}
+            />
+          )
+    }
     return (
         <Panel id={id}>
             <PanelHeader before={<PanelHeaderBack onClick={go} data-to="home"/>}/>
             <Group>
                 <Gradient mode="tint" style={styles}>
-                    <Avatar size={96} />
+                    <Avatar size={96} src={!fetchedUser ? null : fetchedUser.photo_200} />
                     <Title style={{ marginBottom: 8, marginTop: 20 }} level="2" weight="2">
-                        Елизавета Корчагина
+                        {!fetchedUser ? null : `${fetchedUser.first_name} ${fetchedUser.last_name}`}
                     </Title>
                     <Text
                         style={{
@@ -84,29 +110,29 @@ const StartPage = ({ id, go, activePanel }) => {
                 </div>
             </Div>
             <Div>
-                <FormItem top="город">
+                <FormItem top="Город">
                     <Select
-                        value={sizeY}
-                        onChange={(e) => setSizeY(e.target.value)}
+                        value={city}
+                        onChange={(e) => setCity(e.target.value)}
                         options={[
-                        { label: 'Ростов-на-Дону', value: 'Ростов-на-Дону' },
+                            { label: 'Ростов-на-Дону', value: 'Ростов-на-Дону' },
                         ]}
                     />
                 </FormItem>
             </Div>
             <Div>
-                <FormItem top="учебное заведение">
+                <FormItem top="Учебное заведение">
                     <Select
-                        value={city}
-                        onChange={(e) => setCity(e.target.value)}
+                        value={university}
+                        onChange={(e) => setUniversity(e.target.value)}
                         options={[
-                        { label: 'ДГТУ', value: 'ДГТУ' },
+                            { label: 'ДГТУ', value: 'ДГТУ' },
                         ]}
                     />
                 </FormItem>
             </Div>
             <Div style={{paddingBottom: '80px'}}>
-                <Button size="l" mode="primary" stretched onClick={go} data-to="feed">
+                <Button size="l" mode="primary" stretched onClick={submit}>
                     Найти движ
                 </Button>
             </Div>

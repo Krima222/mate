@@ -5,10 +5,11 @@ const Checkbox = ({ id, name, value, checked, onChange, text }) => {
         style={{ 
           display: 'inline-block',
           flexGrow: 1,
-          backgroundColor: checked ? 'blue' : 'gray',
-          color: checked ? 'white' : 'black',
+          backgroundColor: checked ? '#FFFFFF' : '#232323',
+          border: `2px solid ${checked ? '#FFFFFF' : '#78797B'}`,
+          color: checked ? '#000000' : '#656565',
           padding: '10px',
-          borderRadius: '5px',
+          borderRadius: '8px',
           textAlign: 'center',
           cursor: 'pointer'
         }}

@@ -11,10 +11,27 @@ import Questionnaires from './component/Questionnaires/Questionnaires';
 
 import img from './socialEng.png'
 
+const data = [
+    {
+        img,
+        title: 'Хакатон Ростов-на-дону 2023',
+        description: 'Ищу команду для участия в хакато и тут ещё много текста',
+        photos: [img, img, img, img, img, img]
+    },
+    {
+        img,
+        title: 'Хакатон Ростов-на-дону 2023',
+        description: 'Ищу команду для участия в хакато и тут ещё много текста',
+        photos: []
+    }
+]
+
 const App = () => {
 	const [activePanel, setActivePanel] = useState('home');
 	const [fetchedUser, setUser] = useState(null);
 	const [popout, setPopout] = useState(<ScreenSpinner size='large' />);
+
+	const [activities, setActivities] = useState(data)
 
 	useEffect(() => {
 		async function fetchData() {
@@ -45,22 +62,34 @@ const App = () => {
 		});
 	}, []);
 
+	useEffect(() => {
+		// console.log(fetchedUser)
+	}, [fetchedUser])
+
 	const go = e => {
 		setActivePanel(e.currentTarget.dataset.to);
 	};
+
+	const addActivity = ({ img, name, description }) => {
+		setActivities(state => [...state, {
+			img, 
+			title: name,
+			description
+		}])
+	}
 
 	return (
 		<ConfigProvider>
 			<AdaptivityProvider>
 				<AppRoot>
-					<SplitLayout popout={null}>
+					<SplitLayout popout={popout}>
 						<SplitCol>
 							<View activePanel={activePanel}>
-								<HomePage id="home" go={go} />
-								<StartPage id="start" go={go} activePanel={activePanel} />
-								<FormPage id="form" go={go} activePanel={activePanel} />
+								<HomePage id="home" go={go} fetchedUser={fetchedUser} />
+								<StartPage id="start" go={go} activePanel={activePanel} fetchedUser={fetchedUser} />
+								<FormPage id="form" go={() => setActivePanel("questionnaires")} activePanel={activePanel} setPopout={setPopout} handleSubmit={addActivity} count={activities.length} />
 								<Feed id="feed" go={() => setActivePanel("form")}/>
-								<Questionnaires id="questionnaires" go={go} />
+								<Questionnaires id="questionnaires" go={go} data={activities} />
 							</View>
 						</SplitCol>
 					</SplitLayout>

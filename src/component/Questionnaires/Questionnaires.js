@@ -6,24 +6,7 @@ import QuestionnairesCard from './QuestionnairesCard/QuestionnairesCard';
 
 import classes from './Questionnaires.module.scss'
 
-import card1 from './imgs/card1.png'
-
-const data = [
-    {
-        img: card1,
-        title: 'Хакатон Ростов-на-дону 2023',
-        description: 'Ищу команду для участия в хакато и тут ещё много текста',
-        photos: [card1, card1, card1, card1, card1, card1]
-    },
-    {
-        img: card1,
-        title: 'Хакатон Ростов-на-дону 2023',
-        description: 'Ищу команду для участия в хакато и тут ещё много текста',
-        photos: []
-    }
-]
-
-const Questionnaires = ({ id, go }) => {
+const Questionnaires = ({ id, go, data }) => {
     return (
         <Panel id={id}>
             <PanelHeader before={<PanelHeaderBack onClick={go} data-to="home"/>}>
