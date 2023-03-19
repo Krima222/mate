@@ -2,6 +2,7 @@ import React from 'react';
 
 import { useAdaptivityConditionalRender, SplitCol, Epic, Tabbar, TabbarItem } from '@vkontakte/vkui';
 import { Icon28NewsfeedOutline, Icon28UserCircleOutline, Icon28MessageOutline } from '@vkontakte/icons';
+import hand from './Vector.png'
 
 const Footer = ({ activePage, go }) => {
     const { viewWidth } = useAdaptivityConditionalRender();
@@ -18,7 +19,7 @@ const Footer = ({ activePage, go }) => {
                             data-to="start"
                             text="Движ"
                         >
-                        <Icon28NewsfeedOutline />
+                        <Image src={hand} size={72} />
                         </TabbarItem>
                         <TabbarItem
                             onClick={go}
