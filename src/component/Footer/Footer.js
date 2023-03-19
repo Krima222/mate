@@ -1,8 +1,11 @@
 import React from 'react';
 
-import { useAdaptivityConditionalRender, SplitCol, Epic, Tabbar, TabbarItem } from '@vkontakte/vkui';
+import { useAdaptivityConditionalRender, SplitCol, Epic, Tabbar, TabbarItem, Image } from '@vkontakte/vkui';
 import { Icon28NewsfeedOutline, Icon28UserCircleOutline, Icon28MessageOutline } from '@vkontakte/icons';
-import hand from './Vector.png'
+
+import { ReactComponent as Hand } from './hand.svg';
+
+import classes from './Footer.module.scss'
 
 const Footer = ({ activePage, go }) => {
     const { viewWidth } = useAdaptivityConditionalRender();
@@ -19,7 +22,9 @@ const Footer = ({ activePage, go }) => {
                             data-to="start"
                             text="Движ"
                         >
-                        <Image src={hand} size={72} />
+                        <div className={classes.img}>
+                            <Hand />
+                        </div>
                         </TabbarItem>
                         <TabbarItem
                             onClick={go}

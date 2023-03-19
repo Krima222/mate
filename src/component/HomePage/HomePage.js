@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Panel, Button, Div, Gradient, Title, Avatar, Text, Group, ModalCardBase, ButtonGroup } from '@vkontakte/vkui';
 
-const HomePage = ({id, go, fetchedUser}) => {
+const HomePage = ({id, go, fetchedUser, userData }) => {
 	const styles = {
 		margin: 0,
 		display: 'flex',
@@ -20,14 +20,16 @@ const HomePage = ({id, go, fetchedUser}) => {
 				<Title style={{ marginBottom: 8, marginTop: 20 }} level="2" weight="2">
 					{!fetchedUser ? null : `${fetchedUser.first_name} ${fetchedUser.last_name}`}
 				</Title>
-				<Text
-					style={{
-						marginBottom: 24,
-						color: 'var(--vkui--color_text_secondary)',
-					}}
-				>
-					Ростов-на-Дону, ДГТУ
-				</Text>
+				{!userData ? null : (
+					<Text
+						style={{
+							marginBottom: 24,
+							color: 'var(--vkui--color_text_secondary)',
+						}}
+					>
+						{userData.city}, {userData.university}
+					</Text>
+				)}
         	</Gradient>
 		</Group>
 		<Div>

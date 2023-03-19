@@ -31,10 +31,7 @@ const App = () => {
 	const [activePanel, setActivePanel] = useState('home');
 	const [fetchedUser, setUser] = useState(null);
 	const [popout, setPopout] = useState(<ScreenSpinner size='large' />);
-	const [userData, setUserData] = useState({
-		description: 'aaaaaaaaa',
-		tag: ["aaaa", "aaaa", "aaaa"]
-	})
+	const [userData, setUserData] = useState(null)
 
 	const [activities, setActivities] = useState(data)
 
@@ -90,9 +87,9 @@ const App = () => {
 					<SplitLayout popout={popout}>
 						<SplitCol>
 							<View activePanel={activePanel}>
-								<HomePage id="home" go={go} fetchedUser={fetchedUser} />
+								<HomePage id="home" go={go} fetchedUser={fetchedUser} userData={userData} />
 								<FormPage id="form" go={go} activePanel={activePanel} setPopout={setPopout} handleSubmit={addActivity} count={activities.length} />
-								<StartPage id="start" go={go} activePanel={activePanel} fetchedUser={fetchedUser} setUserData={setUserData}/>
+								<StartPage id="start" go={go} activePanel={activePanel} fetchedUser={fetchedUser} userData={userData} setUserData={setUserData} setPopout={setPopout} />
 								<Feed id="feed" go={() => setActivePanel("form")}/>
 								<Questionnaires id="questionnaires" go={go} data={activities} />
 								<Profile id="profile" go={go} fetchedUser={fetchedUser} userData={userData}/>

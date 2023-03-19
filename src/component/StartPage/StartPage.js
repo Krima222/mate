@@ -19,10 +19,11 @@ import {
 import Checkbox from '../Checkbox/Checkbox';
 import Footer from '../Footer/Footer';
 
-const StartPage = ({ id, go, activePanel, fetchedUser }) => {
+const StartPage = ({ id, go, activePanel, fetchedUser, userData, setUserData, setPopout }) => {
+    const [description, setDescription] = useState('')
     const [checked, setChecked] = useState(new Set());
-    const [university, setUniversity] = useState('');
-    const [city, setCity] = useState('');
+    const [university, setUniversity] = useState(null);
+    const [city, setCity] = useState(null);
     
     const handleChange = (event) => {
         if (event.target.checked) {
@@ -61,15 +62,43 @@ const StartPage = ({ id, go, activePanel, fetchedUser }) => {
 		padding: 32,
 	};
 
-    const submit = () => {
-        setPopoutWithRestriction(
-            <Alert
-              header="Поле Имя не заполнено"
-              text="Пожалуйста, заполните его."
-              onClose={() => setPopoutWithRestriction(null)}
-            />
-          )
+    const submit = e => {
+        if (!checked.size) {
+            setPopout(
+                <Alert
+                    header="Не выбран ни один тег"
+                    onClose={() => setPopout(null)}
+                />
+            )
+            return
+        }
+        if (!city) {
+            setPopout(
+                <Alert
+                    header="Город не выбран"
+                    onClose={() => setPopout(null)}
+                />
+            )
+            return
+        }
+        if (!university) {
+            setPopout(
+                <Alert
+                    header="Учебное заведение не выбрано"
+                    onClose={() => setPopout(null)}
+                />
+            )
+            return
+        }
+        setUserData({
+            description,
+            city,
+            university,
+            tags: Array.from(checked)
+        })
+        go(e)
     }
+
     return (
         <Panel id={id}>
             <PanelHeader before={<PanelHeaderBack onClick={go} data-to="home"/>}/>
@@ -85,13 +114,13 @@ const StartPage = ({ id, go, activePanel, fetchedUser }) => {
                             color: 'var(--vkui--color_text_secondary)',
                         }}
                     >
-                        Ростов-на-Дону, ДГТУ
+                        {!userData ? null : `${userData.city}, ${userData.university}`}
                     </Text>
                 </Gradient>
             </Group>
             <Div>
                 <FormItem top="О себе">
-                    <Textarea />
+                    <Textarea value={description} onChange={e => setDescription(e.target.value)} />
                 </FormItem>
             </Div>
             <Div>
@@ -111,8 +140,8 @@ const StartPage = ({ id, go, activePanel, fetchedUser }) => {
             <Div>
                 <FormItem top="Город">
                     <Select
-                        value={city}
                         onChange={(e) => setCity(e.target.value)}
+                        placeholder="Не выбран"
                         options={[
                             { label: 'Ростов-на-Дону', value: 'Ростов-на-Дону' },
                         ]}
@@ -122,8 +151,8 @@ const StartPage = ({ id, go, activePanel, fetchedUser }) => {
             <Div>
                 <FormItem top="Учебное заведение">
                     <Select
-                        value={university}
                         onChange={(e) => setUniversity(e.target.value)}
+                        placeholder="Не выбрано"
                         options={[
                             { label: 'ДГТУ', value: 'ДГТУ' },
                         ]}
@@ -131,7 +160,7 @@ const StartPage = ({ id, go, activePanel, fetchedUser }) => {
                 </FormItem>
             </Div>
             <Div style={{paddingBottom: '80px'}}>
-                <Button size="l" mode="primary" stretched onClick={submit}>
+                <Button size="l" mode="primary" stretched onClick={submit} data-to="feed">
                     Найти движ
                 </Button>
             </Div>
