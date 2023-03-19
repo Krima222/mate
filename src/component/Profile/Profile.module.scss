@@ -5,14 +5,18 @@
     // height: 544px;
     border-radius: 12px;
     &__wrapper {
-        padding-bottom: 24px;
+        padding: 100px 10px 0;
     }
     &__img {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translate(-50%, -50%);
         display: block;
-        width: 100%;
+        width: 100px;
         object-fit: cover;
-        height: 170px;
-        border-radius: 8px;
+        height: 100px;
+        border-radius: 50%;
         margin-bottom: 22px;
         &_last {
             object-position: 50% 82%;
@@ -25,7 +29,7 @@
         font-family: var(--vkui--font_title2--font_family--regular);
         font-size: var(--vkui--font_title2--font_size--regular);
         font-weight: var(--vkui--font_title2--font_weight--regular);
-        margin-bottom: 12px;
+        margin-bottom: 4px;
     }
     &__icon {
         margin: 0 auto;
@@ -53,7 +57,16 @@
         border: none;
     }
     &__note {
-        
+        display: -webkit-box;
+        overflow: hidden;
+        -webkit-line-clamp: 5;
+        -webkit-box-orient: vertical;
+        text-align: center;
+        color: var(--vkui--color_text_subhead);
+        font-family: var(--vkui--font_subhead--font_family--regular);
+        font-size: var(--vkui--font_subhead--font_size--regular);
+        font-weight: var(--vkui--font_subhead--font_weight--regular);
+        margin-bottom: 40px;
     }
     &__description {
         display: -webkit-box;
@@ -65,11 +78,10 @@
         font-family: var(--vkui--font_subhead--font_family--regular);
         font-size: var(--vkui--font_subhead--font_size--regular);
         font-weight: var(--vkui--font_subhead--font_weight--regular);
-        margin-bottom: 30px;
+        margin-bottom: 60px;
     }
     &__content {
-        padding: 0 16px;
-        padding-bottom: 80px;
+        padding: 60px 16px;
     }
     &__tags {
         display: flex;
