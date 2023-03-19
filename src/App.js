@@ -101,8 +101,8 @@ const App = () => {
 								<Questionnaires id="questionnaires" go={go} data={activities} activePanel={activePanel}/>
 								{userData ? <Feed id="feed" activePanel={activePanel} go={go}/> : null}
 								{userData ? <Profile id="profile" go={go} fetchedUser={fetchedUser} userData={userData}/> : null}
-								{!userData ? <About id="feed" go={go} /> : null}
-								{!userData ? <About id="profile" go={go} /> : null}
+								{!userData ? <About id="feed" go={go} activePanel={activePanel} /> : null}
+								{!userData ? <About id="profile" go={go} activePanel={activePanel} /> : null}
 							</View>
 						</SplitCol>
 					</SplitLayout>

@@ -1,8 +1,8 @@
 import React from 'react';
-import { Panel, Text, AdaptivityProvider, ModalCardBase, Image, ButtonGroup, Button, ViewWidth } from '@vkontakte/vkui';
-
+import { Panel, AdaptivityProvider, ModalCardBase, Image, ButtonGroup, Button, ViewWidth, Footer } from '@vkontakte/vkui';
+import Footer from '../Footer/Footer';
 import smile from './smile.png'
-const About = ({ go }) => {
+const About = ({ go, activePanel }) => {
     return (
         <Panel>
             <AdaptivityProvider viewWidth={ViewWidth.MOBILE}>
@@ -20,6 +20,7 @@ const About = ({ go }) => {
                     }
                 />
             </AdaptivityProvider>
+            <Footer go={go} activePage={activePanel} />
         </Panel>
     )
 }

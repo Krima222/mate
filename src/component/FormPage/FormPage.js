@@ -169,7 +169,7 @@ const FormPage = ({ id, go, activePanel, setPopout, count, handleSubmit }) => {
 
     return (
         <Panel id={id}>
-            <PanelHeader before={<PanelHeaderBack onClick={go} data-to="home"/>}>
+            <PanelHeader before={<PanelHeaderBack onClick={go} data-to="questionnaires"/>}>
                 Создание
             </PanelHeader>
             <Group>
