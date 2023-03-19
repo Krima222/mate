@@ -57,8 +57,8 @@ const App = () => {
 						<SplitCol>
 							<View activePanel={activePanel}>
 								<HomePage id="home" go={go} />
-								<StartPage id="start" go={go} />
-								<FormPage id="form" go={go} />
+								<StartPage id="start" go={go} activePanel={activePanel} />
+								<FormPage id="form" go={go} activePanel={activePanel} />
 								<Feed id="feed" go={() => setActivePanel("form")}/>
 								<Questionnaires id="questionnaires" go={go} />
 							</View>

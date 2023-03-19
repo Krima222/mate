@@ -4,7 +4,7 @@ import { Panel, PanelHeader, PanelHeaderBack, Group, Gradient, Avatar, Div, Form
 import Checkbox from '../Checkbox/Checkbox';
 import Footer from '../Footer/Footer';
 
-const FormPage = ({id, go}) => {
+const FormPage = ({ id, go, activePanel }) => {
     const [checked, setChecked] = useState(new Set());
     const [sizeY, setSizeY] = useState('');
     const [city, setCity] = useState('');
@@ -108,12 +108,12 @@ const FormPage = ({id, go}) => {
                     />
                 </FormItem>
             </Group>
-            <Div>
+            <Div style={{paddingBottom: '80px'}}>
                 <Button size="l" mode="primary" stretched onClick={go} data-to="feed">
                     Создать движ
                 </Button>
             </Div>
-            <Footer/>
+            <Footer go={go} activePanel={activePanel} />
         </Panel>
     )
 }

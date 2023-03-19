@@ -4,7 +4,7 @@ import { Panel, PanelHeader, PanelHeaderBack, Group, Gradient, Avatar, Title, Te
 import Checkbox from '../Checkbox/Checkbox';
 import Footer from '../Footer/Footer';
 
-const StartPage = ({id, go}) => {
+const StartPage = ({ id, go, activePanel }) => {
     const [checked, setChecked] = useState(new Set());
     const [sizeY, setSizeY] = useState('');
     const [city, setCity] = useState('');
@@ -105,12 +105,12 @@ const StartPage = ({id, go}) => {
                     />
                 </FormItem>
             </Div>
-            <Div>
+            <Div style={{paddingBottom: '80px'}}>
                 <Button size="l" mode="primary" stretched onClick={go} data-to="feed">
                     Найти движ
                 </Button>
             </Div>
-            <Footer/>
+            <Footer go={go} activePanel={activePanel} />
         </Panel>
     )
 }
