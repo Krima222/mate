@@ -7,6 +7,7 @@ import { ReactComponent as Hand } from './hand.svg';
 
 import classes from './Footer.module.scss'
 
+
 const Footer = ({ activePage, go }) => {
     const { viewWidth } = useAdaptivityConditionalRender();
     return (
