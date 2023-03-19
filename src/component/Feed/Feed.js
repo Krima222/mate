@@ -2,6 +2,7 @@ import React from 'react';
 
 import Slider from '../Slider/Slider';
 import ActiveCard from '../ActiveCard/ActiveCard';
+import Footer from '../Footer/Footer';
 
 import { Panel } from '@vkontakte/vkui';
 
@@ -39,7 +40,7 @@ const cards = [
     }
 ]
 
-const Feed = ({ id, go }) => (
+const Feed = ({ id, go, activePanel}) => (
     <Panel id={id}>
         <Slider>
             {cards.reverse().map(item => (
@@ -55,6 +56,7 @@ const Feed = ({ id, go }) => (
                 />
             ))}
         </Slider>
+        <Footer go={go} activePanel={activePanel} />
     </Panel>
 );
 
