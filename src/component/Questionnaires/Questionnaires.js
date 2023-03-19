@@ -9,9 +9,9 @@ import classes from './Questionnaires.module.scss'
 const Questionnaires = ({ id, go, data }) => {
     return (
         <Panel id={id}>
-            <PanelHeader before={<PanelHeaderBack onClick={go} data-to="home"/>}>
+            {/* <PanelHeader before={<PanelHeaderBack onClick={go} data-to="home"/>}>
                 Анкеты
-            </PanelHeader>
+            </PanelHeader> */}
             <div className={classes.cards}>
                 {data.map(item => (
                     <QuestionnairesCard
@@ -22,6 +22,7 @@ const Questionnaires = ({ id, go, data }) => {
                     />
                 ))}
             </div>
+            <Footer go={go} activePanel={activePanel} />
         </Panel>
     )
 }
