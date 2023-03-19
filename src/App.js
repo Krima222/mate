@@ -9,6 +9,7 @@ import FormPage from './component/FormPage/FormPage';
 import Feed from './component/Feed/Feed';
 import Questionnaires from './component/Questionnaires/Questionnaires';
 import Profile from './component/Profile/Profile';
+import About from './component/About/About'
 
 import img from './socialEng.png'
 import friend from './friend.jpg'
@@ -97,9 +98,11 @@ const App = () => {
 								<HomePage id="home" go={go} fetchedUser={fetchedUser} userData={userData} />
 								<FormPage id="form" go={go} activePanel={activePanel} setPopout={setPopout} handleSubmit={addActivity} count={activities.length} />
 								<StartPage id="start" go={go} activePanel={activePanel} fetchedUser={fetchedUser} userData={userData} setUserData={setUserData} setPopout={setPopout} />
-								<Feed id="feed" go={() => setActivePanel("form")}/>
 								<Questionnaires id="questionnaires" go={go} data={activities} activePanel={activePanel}/>
-								<Profile id="profile" go={go} fetchedUser={fetchedUser} userData={userData}/>
+								{userData ? <Feed id="feed" go={() => setActivePanel("form")}/> : null}
+								{userData ? <Profile id="profile" go={go} fetchedUser={fetchedUser} userData={userData}/> : null}
+								{!userData ? <About id="feed" go={go} /> : null}
+								{!userData ? <About id="profile" go={go} /> : null}
 							</View>
 						</SplitCol>
 					</SplitLayout>
