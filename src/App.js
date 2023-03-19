@@ -87,7 +87,7 @@ const App = () => {
 							<View activePanel={activePanel}>
 								<HomePage id="home" go={go} fetchedUser={fetchedUser} />
 								<StartPage id="start" go={go} activePanel={activePanel} fetchedUser={fetchedUser} />
-								<FormPage id="form" go={() => setActivePanel("questionnaires")} activePanel={activePanel} setPopout={setPopout} handleSubmit={addActivity} count={activities.length} />
+								<FormPage id="form" go={go} activePanel={activePanel} setPopout={setPopout} handleSubmit={addActivity} count={activities.length} />
 								<Feed id="feed" go={() => setActivePanel("form")}/>
 								<Questionnaires id="questionnaires" go={go} data={activities} />
 							</View>

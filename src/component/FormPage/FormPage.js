@@ -77,10 +77,11 @@ const FormPage = ({ id, go, activePanel, setPopout, count, handleSubmit }) => {
         reader.readAsDataURL(e.target.files[0])
         reader.onload = () => {
             setImg(reader.result)
+            e.target.value = null
         }
     }
 
-    const submit = () => {
+    const submit = e => {
         if (!img) {
             setPopout(
                 <Alert
@@ -153,7 +154,7 @@ const FormPage = ({ id, go, activePanel, setPopout, count, handleSubmit }) => {
         university,
         city
     })
-    go()
+    go(e)
     setTimeout(() => {
         setPopout(
             <Alert
@@ -168,7 +169,9 @@ const FormPage = ({ id, go, activePanel, setPopout, count, handleSubmit }) => {
 
     return (
         <Panel id={id}>
-            <PanelHeader before={<PanelHeaderBack onClick={go} data-to="home"/>}/>
+            <PanelHeader before={<PanelHeaderBack onClick={go} data-to="home"/>}>
+                Создание
+            </PanelHeader>
             <Group>
                 <Gradient mode="tint" style={styles}>
                     {img ? (
@@ -271,7 +274,7 @@ const FormPage = ({ id, go, activePanel, setPopout, count, handleSubmit }) => {
                 </FormItem>
             </Group>
             <Div style={{paddingBottom: '80px'}}>
-                <Button size="l" mode="primary" stretched onClick={submit}>
+                <Button size="l" mode="primary" stretched onClick={submit} data-to="questionnaires">
                     Создать движ
                 </Button>
             </Div>
