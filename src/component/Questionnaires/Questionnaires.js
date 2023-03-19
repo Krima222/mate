@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Panel, PanelHeader, PanelHeaderBack } from '@vkontakte/vkui';
+import { Panel, Button, Div } from '@vkontakte/vkui';
 
 import QuestionnairesCard from './QuestionnairesCard/QuestionnairesCard';
 import Footer from '../Footer/Footer';
@@ -21,6 +21,12 @@ const Questionnaires = ({ id, go, data, activePanel }) => {
                     />
                 ))}
             </div>
+            <Div style={{paddingBottom: '80px'}}>
+                <Button size="l" mode="primary" stretched onClick={go} data-to="form">
+                    Создать движ
+                </Button>
+            </Div>
+            <div style={{height: '40px'}}></div>
             <Footer go={go} activePage={activePanel} />
         </Panel>
     )

@@ -16,7 +16,7 @@ const Footer = ({ activePage, go }) => {
                 activeStory={activePage}
                 tabbar={
                     viewWidth.tabletMinus && (
-                    <Tabbar className={viewWidth.tabletMinus.className} style={{padding: '6px 0 10px'}}>
+                    <Tabbar className={viewWidth.tabletMinus.className} style={{padding: '6px 0 18px'}}>
                         <TabbarItem
                             onClick={go}
                             selected={activePage === 'feed'}

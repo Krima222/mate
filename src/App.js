@@ -50,26 +50,26 @@ const App = () => {
 			setPopout(null);
 		}
 		fetchData();
-		bridge.send('VKWebAppShowSlidesSheet', {
-			slides: [
-			  {
-				media: {
-				  blob: img,
-				  type: 'image'
-				},
-				title: 'Заголовок слайда',
-				subtitle: 'Описание слайда под заголовком'
-			  }
-			 ]})
-			.then((data) => { 
-			  if (data.result) {
-				// Слайды показаны
-			  }
-			})
-			.catch((error) => {
-			  // Ошибка
-			  console.log(error);
-		});
+		// bridge.send('VKWebAppShowSlidesSheet', {
+		// 	slides: [
+		// 	  {
+		// 		media: {
+		// 		  blob: img,
+		// 		  type: 'image'
+		// 		},
+		// 		title: 'Заголовок слайда',
+		// 		subtitle: 'Описание слайда под заголовком'
+		// 	  }
+		// 	 ]})
+		// 	.then((data) => { 
+		// 	  if (data.result) {
+		// 		// Слайды показаны
+		// 	  }
+		// 	})
+		// 	.catch((error) => {
+		// 	  // Ошибка
+		// 	  console.log(error);
+		// });
 	}, []);
 
 	useEffect(() => {
