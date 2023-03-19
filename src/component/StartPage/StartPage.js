@@ -14,7 +14,6 @@ import {
     Select, 
     Button, 
     Textarea,
-    setPopoutWithRestriction,
     Alert
 } from '@vkontakte/vkui';
 import Checkbox from '../Checkbox/Checkbox';
