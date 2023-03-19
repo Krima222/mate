@@ -11,18 +11,25 @@ import Questionnaires from './component/Questionnaires/Questionnaires';
 import Profile from './component/Profile/Profile';
 
 import img from './socialEng.png'
+import friend from './friend.jpg'
+import user1 from './user1.png'
+import user2 from './user2.jpg'
+import user3 from './user3.jpg'
+import user4 from './user4.jpg'
+import user5 from './user5.jpg'
+import user6 from './user6.jpg'
 
 const data = [
     {
         img,
         title: 'Хакатон Ростов-на-дону 2023',
         description: 'Ищу команду для участия в хакато и тут ещё много текста',
-        photos: [img, img, img, img, img, img]
+        photos: [user1, user2, user3, user4, user5, user6]
     },
     {
-        img,
-        title: 'Хакатон Ростов-на-дону 2023',
-        description: 'Ищу команду для участия в хакато и тут ещё много текста',
+        img: friend,
+        title: 'IT-друг',
+        description: 'Ищу единомышленника для совмесного обучения, чтобы поднять свой профессиональный уровень',
         photos: []
     }
 ]
