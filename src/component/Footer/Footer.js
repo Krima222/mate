@@ -19,13 +19,13 @@ const Footer = ({ activePage, go }) => {
                     <Tabbar className={viewWidth.tabletMinus.className} style={{padding: '6px 0 10px'}}>
                         <TabbarItem
                             onClick={go}
-                            selected={activePage === 'start'}
+                            selected={activePage === 'feed'}
                             data-to="feed"
                             text="Движ"
                         >
-                        <div className={classes.img}>
-                            <Hand />
-                        </div>
+                            <div className={classes.img}>
+                                <Hand />
+                            </div>
                         </TabbarItem>
                         <TabbarItem
                             onClick={go}
@@ -33,7 +33,7 @@ const Footer = ({ activePage, go }) => {
                             data-to="questionnaires"
                             text="Анкеты"
                         >
-                        <Icon28NewsfeedOutline />
+                            <Icon28NewsfeedOutline />
                         </TabbarItem>
                         {/* <TabbarItem
                             onClick={go}
@@ -45,7 +45,7 @@ const Footer = ({ activePage, go }) => {
                         </TabbarItem> */}
                         <TabbarItem
                             onClick={go}
-                            selected={activePage === 'home'}
+                            selected={activePage === 'profile'}
                             data-to="profile"
                             text="Профиль"
                         >

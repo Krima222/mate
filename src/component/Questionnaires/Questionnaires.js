@@ -23,7 +23,7 @@ const Questionnaires = ({ id, go, data, activePanel }) => {
                     />
                 ))}
             </div>
-            <Footer go={go} activePanel={activePanel} />
+            <Footer go={go} activePage={activePanel} />
         </Panel>
     )
 }

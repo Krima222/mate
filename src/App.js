@@ -99,7 +99,7 @@ const App = () => {
 								<FormPage id="form" go={go} activePanel={activePanel} setPopout={setPopout} handleSubmit={addActivity} count={activities.length} />
 								<StartPage id="start" go={go} activePanel={activePanel} fetchedUser={fetchedUser} userData={userData} setUserData={setUserData} setPopout={setPopout} />
 								<Questionnaires id="questionnaires" go={go} data={activities} activePanel={activePanel}/>
-								{userData ? <Feed id="feed" go={() => setActivePanel("form")}/> : null}
+								{userData ? <Feed id="feed" activePanel={activePanel} go={go}/> : null}
 								{userData ? <Profile id="profile" go={go} fetchedUser={fetchedUser} userData={userData}/> : null}
 								{!userData ? <About id="feed" go={go} /> : null}
 								{!userData ? <About id="profile" go={go} /> : null}

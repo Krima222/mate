@@ -101,7 +101,9 @@ const StartPage = ({ id, go, activePanel, fetchedUser, userData, setUserData, se
 
     return (
         <Panel id={id}>
-            <PanelHeader before={<PanelHeaderBack onClick={go} data-to="home"/>}/>
+            <PanelHeader before={<PanelHeaderBack onClick={go} data-to="home"/>}>
+                Профиль
+            </PanelHeader>
             <Group>
                 <Gradient mode="tint" style={styles}>
                     <Avatar size={96} src={!fetchedUser ? null : fetchedUser.photo_200} />
