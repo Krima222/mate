@@ -1,8 +1,7 @@
 .card {
     position: relative;
-    background-color: #191919;
-    // background-color: red;
-    // height: 544px;
+    background-color: #454648;
+    height: 500px;
     border-radius: 12px;
     &__wrapper {
         padding-bottom: 24px;
@@ -75,7 +74,7 @@
     }
     &__tag {
         flex-grow: 1;
-        background-color: #454648;
+        background-color: #191919;
         padding: 9px 15px;
         text-align: center;
         border-radius: 8px;

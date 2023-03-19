@@ -4,9 +4,8 @@ import Slider from '../Slider/Slider';
 import ActiveCard from '../ActiveCard/ActiveCard';
 import Footer from '../Footer/Footer';
 
-import { Panel } from '@vkontakte/vkui';
+import { Panel, Div } from '@vkontakte/vkui';
 
-import img from './socialEng.png'
 import cat from './cat.gif'
 import icon from './dvij.svg'
 import rel from './rel.jpg'
@@ -59,6 +58,7 @@ const cards = [
 
 const Feed = ({ id, go, activePanel}) => (
     <Panel id={id}>
+        <div style={{height: '40px'}}></div>
         <Slider>
             {cards.reverse().map(item => (
                 <ActiveCard 

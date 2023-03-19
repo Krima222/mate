@@ -10,9 +10,7 @@ import classes from './Questionnaires.module.scss'
 const Questionnaires = ({ id, go, data, activePanel }) => {
     return (
         <Panel id={id}>
-            {/* <PanelHeader before={<PanelHeaderBack onClick={go} data-to="home"/>}>
-                Анкеты
-            </PanelHeader> */}
+            <div style={{height: '40px'}}></div>
             <div className={classes.cards}>
                 {data.map(item => (
                     <QuestionnairesCard

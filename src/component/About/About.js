@@ -1,5 +1,5 @@
 import React from 'react';
-import { Panel, AdaptivityProvider, ModalCardBase, Image, ButtonGroup, Button, ViewWidth, Footer } from '@vkontakte/vkui';
+import { Panel, AdaptivityProvider, ModalCardBase, Image, ButtonGroup, Button, ViewWidth } from '@vkontakte/vkui';
 import Footer from '../Footer/Footer';
 import smile from './smile.png'
 const About = ({ go, activePanel }) => {
