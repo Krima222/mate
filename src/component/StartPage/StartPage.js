@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 
 import { Panel, PanelHeader, PanelHeaderBack, Group, Gradient, Avatar, Title, Text, Div, FormItem, Select, Button, Textarea } from '@vkontakte/vkui';
 import Checkbox from '../Checkbox/Checkbox';
+import Footer from '../Footer/Footer';
 
 const StartPage = ({id, go}) => {
     const [checked, setChecked] = useState(new Set());
@@ -109,6 +110,7 @@ const StartPage = ({id, go}) => {
                     Найти движ
                 </Button>
             </Div>
+            <Footer/>
         </Panel>
     )
 }
