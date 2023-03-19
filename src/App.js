@@ -8,6 +8,7 @@ import StartPage from './component/StartPage/StartPage';
 import FormPage from './component/FormPage/FormPage';
 import Feed from './component/Feed/Feed';
 import Questionnaires from './component/Questionnaires/Questionnaires';
+import Profile from './component/Profile/Profile';
 
 import img from './socialEng.png'
 
@@ -30,6 +31,10 @@ const App = () => {
 	const [activePanel, setActivePanel] = useState('home');
 	const [fetchedUser, setUser] = useState(null);
 	const [popout, setPopout] = useState(<ScreenSpinner size='large' />);
+	const [userData, setUserData] = useState({
+		description: 'aaaaaaaaa',
+		tag: ["aaaa", "aaaa", "aaaa"]
+	})
 
 	const [activities, setActivities] = useState(data)
 
@@ -86,10 +91,11 @@ const App = () => {
 						<SplitCol>
 							<View activePanel={activePanel}>
 								<HomePage id="home" go={go} fetchedUser={fetchedUser} />
-								<StartPage id="start" go={go} activePanel={activePanel} fetchedUser={fetchedUser} />
 								<FormPage id="form" go={go} activePanel={activePanel} setPopout={setPopout} handleSubmit={addActivity} count={activities.length} />
+								<StartPage id="start" go={go} activePanel={activePanel} fetchedUser={fetchedUser} setUserData={setUserData}/>
 								<Feed id="feed" go={() => setActivePanel("form")}/>
 								<Questionnaires id="questionnaires" go={go} data={activities} />
+								<Profile id="profile" go={go} fetchedUser={fetchedUser} userData={userData}/>
 							</View>
 						</SplitCol>
 					</SplitLayout>

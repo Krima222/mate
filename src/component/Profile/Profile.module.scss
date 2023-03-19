@@ -1,0 +1,7 @@
+.card {
+    &__tags {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+}
