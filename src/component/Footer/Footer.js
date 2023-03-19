@@ -19,7 +19,7 @@ const Footer = ({ activePage, go }) => {
                         <TabbarItem
                             onClick={go}
                             selected={activePage === 'start'}
-                            data-to="start"
+                            data-to="feed"
                             text="Движ"
                         >
                         <div className={classes.img}>
@@ -34,18 +34,18 @@ const Footer = ({ activePage, go }) => {
                         >
                         <Icon28NewsfeedOutline />
                         </TabbarItem>
-                        <TabbarItem
+                        {/* <TabbarItem
                             onClick={go}
                             selected={activePage === 'home'}
                             data-to="home"
                             text="Чаты"
                         >
                         <Icon28MessageOutline />
-                        </TabbarItem>
+                        </TabbarItem> */}
                         <TabbarItem
                             onClick={go}
                             selected={activePage === 'home'}
-                            data-to="home"
+                            data-to="profile"
                             text="Профиль"
                         >
                             <Icon28UserCircleOutline />
